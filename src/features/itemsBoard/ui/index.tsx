@@ -1,11 +1,11 @@
-import { FC, useRef } from "react";
-import { ItemDnD } from "src/entities";
-import { TItem } from "src/shared";
-import styles from "./items-list-dnd.module.scss";
+import { type FC, useRef } from 'react';
+import { ItemDnD } from 'src/entities';
+import { type TItem } from 'src/shared';
+import styles from './items-list-dnd.module.scss';
 
-type TItemsBoardProps = {
+interface TItemsBoardProps {
   list: TItem[];
-};
+}
 
 export const ItemsBoard: FC<TItemsBoardProps> = ({ list }) => {
   const ref = useRef<HTMLDivElement | null>(null);

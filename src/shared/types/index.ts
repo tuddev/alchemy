@@ -1,5 +1,5 @@
-export type TItem = {
+export interface TItem {
   id: string;
   name: string;
   imgSrc: string;
-};
+}

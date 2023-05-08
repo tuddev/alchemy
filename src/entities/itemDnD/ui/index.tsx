@@ -1,22 +1,22 @@
-import { FC, MutableRefObject, useEffect, useRef } from "react";
-import { Item } from "src/entities";
-import { TItem } from "src/shared";
-import styles from "./item-dnd.module.scss";
-import { getRandomInt, moveAt } from "../model";
+import { type FC, type MutableRefObject, useEffect, useRef } from 'react';
+import { Item } from 'src/entities';
+import { type TItem } from 'src/shared';
+import styles from './item-dnd.module.scss';
+import { getRandomInt, moveAt } from '../model';
 
-type TItemDnDProps = {
+interface TItemDnDProps {
   item: TItem;
   index: number;
   containerRef: MutableRefObject<HTMLDivElement | null>;
-};
+}
 
 export const ItemDnD: FC<TItemDnDProps> = ({ item, containerRef }) => {
   const itemRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!itemRef.current) return;
-    itemRef.current.style.left = getRandomInt(0, 600) + "px";
-    itemRef.current.style.top = getRandomInt(0, 500) + "px";
+    itemRef.current.style.left = getRandomInt(0, 600) + 'px';
+    itemRef.current.style.top = getRandomInt(0, 500) + 'px';
   }, []);
 
   const handleMouseDown = () => {

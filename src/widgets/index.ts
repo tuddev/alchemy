@@ -1,1 +1,1 @@
-export { ItemListsBlock } from "./itemListsBlock";
+export { ItemListsBlock } from './itemListsBlock';

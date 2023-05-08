@@ -1,9 +1,10 @@
-import { atom } from "nanostores";
-import { INIT_ITEM_OBJECTS, MATCHES } from "./itemObjects";
-import { TItem } from "src/shared";
-import { getItemsNamesWithSlash } from "./common";
+import { atom } from 'nanostores';
+import { INIT_ITEM_OBJECTS, MATCHES } from './itemObjects';
+import { type TItem } from 'src/shared';
+import { getItemsNamesWithSlash } from './common';
 
-export const unicItems$ = atom<Omit<TItem, "isSelected">[]>(INIT_ITEM_OBJECTS);
+export const unicItems$ =
+  atom<Array<Omit<TItem, 'isSelected'>>>(INIT_ITEM_OBJECTS);
 export const itemsOnFields$ = atom<TItem[]>(
   INIT_ITEM_OBJECTS.map((item) => ({ ...item, isSelected: false }))
 );

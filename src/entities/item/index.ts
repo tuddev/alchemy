@@ -1,6 +1,6 @@
-export { Item } from "./ui";
+export { Item } from './ui';
 export {
   tryCreateObjectFromCurrentItems,
   unicItems$,
   itemsOnFields$,
-} from "./model";
+} from './model';

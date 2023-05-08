@@ -1,2 +1,2 @@
-export { ItemsList } from "./itemsList";
-export { ItemsBoard } from "./itemsBoard";
+export { ItemsList } from './itemsList';
+export { ItemsBoard } from './itemsBoard';

@@ -1,1 +1,1 @@
-export { ItemsBoard } from "./ui";
+export { ItemsBoard } from './ui';

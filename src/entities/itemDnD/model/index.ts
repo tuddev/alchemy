@@ -14,6 +14,6 @@ export const moveAt = (
   const y = event.clientY - bounds.top;
 
   if (x < 20 && y < 20) return;
-  itemRef.style.left = x + "px";
-  itemRef.style.top = y + "px";
+  itemRef.style.left = x + 'px';
+  itemRef.style.top = y + 'px';
 };
