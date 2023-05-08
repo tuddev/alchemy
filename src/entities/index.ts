@@ -1,1 +1,2 @@
-export { Item, type TItem, currentItems$ } from "./item";
+export { Item } from "./item";
+export { ItemDnD } from "./itemDnD";

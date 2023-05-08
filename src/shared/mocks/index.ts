@@ -1,81 +1,77 @@
-import { atom } from "nanostores";
-import { TItem } from "../../entities";
-import uuid from "uuidv4";
+// export const unicItems$ = atom<TItem[]>([
+//   {
+//     id: uuid(),
+//     name: "воздух",
+//     src: "https://avatanplus.com/files/resources/original/5a06f2c0c961a15fab244139.png",
+//     isSelected: false,
+//   },
+//   {
+//     id: uuid(),
+//     name: "Червь",
+//     isSelected: false,
+//     src: "https://www.pngmart.com/files/6/Worms-PNG-Picture.png",
+//   },
+//   {
+//     id: uuid(),
+//     name: "Жизнь",
+//     isSelected: false,
+//     src: "https://www.pngall.com/wp-content/uploads/1/Life-PNG-Image.png",
+//   },
+//   {
+//     id: uuid(),
+//     name: "Болото",
+//     isSelected: false,
+//     src: "https://img.freepik.com/free-vector/moss-on-stone-in-marsh-cartoon-rock-in-swamp-jungle_105738-1326.jpg",
+//   },
+// ]);
 
-export const unicItems$ = atom<TItem[]>([
-  {
-    id: uuid(),
-    name: "воздух",
-    src: "https://avatanplus.com/files/resources/original/5a06f2c0c961a15fab244139.png",
-    isSelected: false,
-  },
-  {
-    id: uuid(),
-    name: "Червь",
-    isSelected: false,
-    src: "https://www.pngmart.com/files/6/Worms-PNG-Picture.png",
-  },
-  {
-    id: uuid(),
-    name: "Жизнь",
-    isSelected: false,
-    src: "https://www.pngall.com/wp-content/uploads/1/Life-PNG-Image.png",
-  },
-  {
-    id: uuid(),
-    name: "Болото",
-    isSelected: false,
-    src: "https://img.freepik.com/free-vector/moss-on-stone-in-marsh-cartoon-rock-in-swamp-jungle_105738-1326.jpg",
-  },
-]);
+// export const itemsOnFields$ = atom<TItem[]>([]);
 
-export const itemsOnFields$ = atom<TItem[]>([]);
-
-export const itemsListFirst$ = atom<TItem[]>([
-  {
-    id: uuid(),
-    name: "воздух",
-    src: "https://avatanplus.com/files/resources/original/5a06f2c0c961a15fab244139.png",
-    isSelected: false,
-  },
-  {
-    id: uuid(),
-    name: "Жизнь",
-    isSelected: false,
-    src: "https://www.pngall.com/wp-content/uploads/1/Life-PNG-Image.png",
-  },
-  {
-    id: uuid(),
-    name: "трава",
-    isSelected: false,
-    src: "https://pngicon.ru/file/uploads/trava.png",
-  },
-  {
-    id: uuid(),
-    name: "трава",
-    isSelected: false,
-    src: "https://pngicon.ru/file/uploads/trava.png",
-  },
-  {
-    id: uuid(),
-    name: "свинья",
-    isSelected: false,
-    src: "https://free-png.ru/wp-content/uploads/2021/05/free-png.ru-406.png",
-  },
-  // { name: "страна", src: "" },
-  // { name: "давление", src: "" },
-  // { name: "вода", src: "" },
-  // { name: "книга", src: "" },
-  // { name: "плотина", src: "" },
-  // { name: "земля", src: "" },
-  // { name: "больной", src: "" },
-  // { name: "человек", src: "" },
-  // { name: "порох", src: "" },
-  // { name: "огонь", src: "" },
-  // { name: "алмаз", src: "" },
-  // { name: "тростник", src: "" },
-  // { name: "воздух", src: "" },
-]);
+// export const itemsListFirst$ = atom<TItem[]>([
+//   {
+//     id: uuid(),
+//     name: "воздух",
+//     src: "https://avatanplus.com/files/resources/original/5a06f2c0c961a15fab244139.png",
+//     isSelected: false,
+//   },
+//   {
+//     id: uuid(),
+//     name: "Жизнь",
+//     isSelected: false,
+//     src: "https://www.pngall.com/wp-content/uploads/1/Life-PNG-Image.png",
+//   },
+//   {
+//     id: uuid(),
+//     name: "трава",
+//     isSelected: false,
+//     src: "https://pngicon.ru/file/uploads/trava.png",
+//   },
+//   {
+//     id: uuid(),
+//     name: "трава",
+//     isSelected: false,
+//     src: "https://pngicon.ru/file/uploads/trava.png",
+//   },
+//   {
+//     id: uuid(),
+//     name: "свинья",
+//     isSelected: false,
+//     src: "https://free-png.ru/wp-content/uploads/2021/05/free-png.ru-406.png",
+//   },
+// { name: "страна", src: "" },
+// { name: "давление", src: "" },
+// { name: "вода", src: "" },
+// { name: "книга", src: "" },
+// { name: "плотина", src: "" },
+// { name: "земля", src: "" },
+// { name: "больной", src: "" },
+// { name: "человек", src: "" },
+// { name: "порох", src: "" },
+// { name: "огонь", src: "" },
+// { name: "алмаз", src: "" },
+// { name: "тростник", src: "" },
+// { name: "воздух", src: "" },
+// ]);
 
 // export const itemsListSecond$ = atom<TItem[]>([
 //   {

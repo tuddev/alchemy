@@ -1,2 +1,6 @@
 export { Item } from "./ui";
-export { type TItem, currentItems$, ItemsMatch } from "./model";
+export {
+  tryCreateObjectFromCurrentItems,
+  unicItems$,
+  itemsOnFields$,
+} from "./model";

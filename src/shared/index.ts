@@ -1,1 +1,1 @@
-export { itemsListFirst$, itemsOnFields$, unicItems$ } from "./mocks";
+export type { TItem } from "./types";

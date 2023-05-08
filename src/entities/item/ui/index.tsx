@@ -1,35 +1,18 @@
-import { Image, Space } from "antd";
+import { Image } from "antd";
 import { FC } from "react";
-import { Typography } from "antd";
-import { TItem } from "../model";
+import { TItem } from "src/shared";
 import styles from "./item.module.scss";
-
-const { Text } = Typography;
 
 type TItemProps = {
   item: TItem;
-  onClick: VoidFunction;
+  onClick?: VoidFunction;
 };
 
-export const Item: FC<TItemProps> = ({
-  item: { id, isSelected, name, src },
-  onClick,
-}) => {
+export const Item: FC<TItemProps> = ({ item: { name, imgSrc }, onClick }) => {
   return (
-    <Space
-      direction="vertical"
-      size="middle"
-      style={{ display: "flex" }}
-      onClick={onClick}
-    >
-      {isSelected ? (
-        <div className={styles.container}>
-          <Image width={60} src={src} preview={false} />
-        </div>
-      ) : (
-        <Image width={60} src={src} preview={false} />
-      )}
-      <Text>{name}</Text>
-    </Space>
+    <div onClick={onClick} className={styles.container}>
+      <Image width={60} src={imgSrc} preview={false} />
+      {name}
+    </div>
   );
 };

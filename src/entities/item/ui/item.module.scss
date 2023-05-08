@@ -1,5 +1,7 @@
 .container {
-  border-radius: 100%;
-  padding: 10px;
-  border: 5px solid skyblue;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  user-select: none;
+  gap: 6px;
 }
