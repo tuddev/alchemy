@@ -25,7 +25,7 @@
 //   },
 // ]);
 
-// export const itemsOnFields$ = atom<TItem[]>([]);
+// export const itemsOnBoard$ = atom<TItem[]>([]);
 
 // export const itemsListFirst$ = atom<TItem[]>([
 //   {

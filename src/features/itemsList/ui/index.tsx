@@ -2,18 +2,16 @@ import { type FC } from 'react';
 import { Space } from 'antd';
 import { type TItem } from 'src/shared';
 import { Item } from 'src/entities';
-import { useStore } from '@nanostores/react';
-import { itemsOnFields$ } from 'src/entities/item';
+import { itemsOnBoard$ } from 'src/entities/item';
 
 interface TItemsListProps {
   list: TItem[];
 }
 
 export const ItemsList: FC<TItemsListProps> = ({ list }) => {
-  const itemsOnFields = useStore(itemsOnFields$);
-
   const handleItemClick = (selectedItem: TItem) => () => {
-    itemsOnFields$.set([...itemsOnFields, selectedItem]);
+    const itemsOnBoard = itemsOnBoard$.get();
+    itemsOnBoard$.set([...itemsOnBoard, selectedItem]);
   };
 
   return (

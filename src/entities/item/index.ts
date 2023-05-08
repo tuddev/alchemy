@@ -2,5 +2,6 @@ export { Item } from './ui';
 export {
   tryCreateObjectFromCurrentItems,
   unicItems$,
-  itemsOnFields$,
+  itemsOnBoard$,
+  tryCreateNewItem,
 } from './model';
