@@ -1,5 +1,5 @@
 import uuid from 'uuidv4';
-import { getItemsNamesWithSlash } from './common';
+import { getItemsNamesWithSlash, getRandomInt } from './common';
 import { type TItem } from 'src/shared';
 
 export const createItemObject = (name: string, imgSrc: string): TItem => {
@@ -7,6 +7,8 @@ export const createItemObject = (name: string, imgSrc: string): TItem => {
     id: uuid(),
     name,
     imgSrc,
+    left: getRandomInt(0, 500),
+    top: getRandomInt(0, 500),
   };
 };
 
@@ -162,6 +164,7 @@ export const INIT_ITEM_OBJECTS: TItem[] = [
   AirObject,
   FireObject,
   EarthObject,
+  FirewoodObject,
 ];
 
 const createMatchObject = (
@@ -169,7 +172,6 @@ const createMatchObject = (
   createdItem: TItem[]
 ): Record<string, TItem[]> => {
   const names = getItemsNamesWithSlash(partsItems);
-
   return {
     [names]: createdItem,
   };
@@ -187,7 +189,6 @@ export const MATCHES: Record<string, TItem[]> = {
   ...createMatchObject([StoneObject, FireObject], [MetallObject]),
   ...createMatchObject([FirewoodObject, FireObject], [CoalObject]),
   ...createMatchObject([FireObject, DustObject], [AshObject]),
-
   ...createMatchObject([AirObject, LavaObject], [StoneObject]),
   ...createMatchObject([SwampObject, SandObject], [ClayObject]),
   ...createMatchObject([ClayObject, FireObject], [BrickObject]),
@@ -197,6 +198,9 @@ export const MATCHES: Record<string, TItem[]> = {
     [StoneObject, StoneObject],
     [StoneObject, StoneObject, FireObject]
   ),
+  ...createMatchObject([FireObject, AlcoholObject], [EnergyObject]),
+  ...createMatchObject([SwampObject, EnergyObject], [LifeObject]),
+  ...createMatchObject([SwampObject, LifeObject], [BacteryObject]),
 };
 
 // вода + воздух = пар
@@ -205,28 +209,23 @@ export const MATCHES: Record<string, TItem[]> = {
 // земля + огонь = лава
 // вода + земля = болото
 // вода + огонь = спирт
-
 // вода + лава = пар, камень
 // воздух + камень = песок
-
 // камень + огонь = металл
 // дерево + огонь = уголь
 // огонь + пыль = пепел
-
 // воздух + лава = камень
 // болото + песок = глина
-
 // глина + огонь = кирпич
 // воздух + энергия = буря
 // огонь + песок = стекло
 // камень + камень = камень, камень, огонь
-
 // огонь + спирт = энергия
-// металл + энергия = электричество
-// камень + ракушки = известняк
-// дерево + огонь = уголь
 // болото + энергия = жизнь
 // болото + жизнь = бактерии
+
+// металл + энергия = электричество
+// камень + ракушки = известняк
 // вода + жизнь = водоросли
 // бактерии + вода = планктон
 // бактерии + планктон = рыба

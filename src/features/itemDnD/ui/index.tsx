@@ -2,16 +2,15 @@ import { useStore } from '@nanostores/react';
 import {
   type FC,
   type MutableRefObject,
-  useEffect,
   useRef,
   type MouseEventHandler,
 } from 'react';
-import { movedItems$ } from 'src/features/itemsBoard';
 import { type TItem } from 'src/shared';
 import { Item } from 'src/entities/index';
 
 import styles from './item-dnd.module.scss';
 import { moveAt, getXYCoorsOfMovedItem } from '../model';
+import { movedItems$ } from 'src/entities/item/model';
 
 interface TItemDnDProps {
   item: TItem;
@@ -22,31 +21,6 @@ interface TItemDnDProps {
 export const ItemDnD: FC<TItemDnDProps> = ({ item, containerRef }) => {
   const itemRef = useRef<HTMLDivElement | null>(null);
   const movedItems = useStore(movedItems$);
-
-  // useEffect(() => {
-  //   if (!itemRef.current) return;
-  //   itemRef.current.style.left = getRandomInt(0, 600) + 'px';
-  //   itemRef.current.style.top = getRandomInt(0, 500) + 'px';
-  // }, []);
-
-  useEffect(() => {
-    if (!itemRef.current) return;
-    const initItem = {
-      id: item.id,
-      height: itemRef.current.offsetHeight,
-      width: itemRef.current.offsetWidth,
-      left: Number.parseInt(itemRef.current.style.left),
-      top: Number.parseInt(itemRef.current.style.top),
-    };
-
-    const { items } = movedItems$.get();
-    const movedItems = items.filter((curItem) => curItem.id !== initItem.id);
-
-    movedItems$.set({
-      items: [...movedItems, { ...initItem }],
-      last: null,
-    });
-  }, [itemRef.current?.style.left, itemRef.current?.style.top]);
 
   const handleMouseDown = () => {
     if (!itemRef.current) return;
@@ -75,9 +49,7 @@ export const ItemDnD: FC<TItemDnDProps> = ({ item, containerRef }) => {
     const { x, y } = getXYCoorsOfMovedItem(event, containerRef.current);
 
     const lastItem = {
-      id: item.id,
-      height: itemRef.current.offsetHeight,
-      width: itemRef.current.offsetWidth,
+      ...item,
       left: x,
       top: y,
     };
@@ -92,6 +64,7 @@ export const ItemDnD: FC<TItemDnDProps> = ({ item, containerRef }) => {
       onDragStart={handleDragStart}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
+      style={{ top: item.top, left: item.left }}
     >
       <Item item={item} />
     </div>

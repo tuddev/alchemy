@@ -16,6 +16,7 @@
   "dependencies": {
     "@nanostores/react": "^0.5.0",
     "antd": "^5.4.6",
+    "classnames": "^2.3.2",
     "nanostores": "^0.8.1",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",

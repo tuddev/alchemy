@@ -1,11 +1,12 @@
 import { type FC } from 'react';
 import { Space } from 'antd';
 import { useStore } from '@nanostores/react';
-import { itemsOnBoard$, unicItems$ } from 'src/entities/item';
+import { unicItems$ } from 'src/entities/item';
 import { ItemsList, ItemsBoard } from 'src/features';
+import { movedItems$ } from 'src/entities/item/model';
 
 export const ItemListsBlock: FC = () => {
-  const itemsOnBoard = useStore(itemsOnBoard$);
+  const movedItems = useStore(movedItems$);
   const unicItems = useStore(unicItems$);
 
   return (
@@ -19,7 +20,7 @@ export const ItemListsBlock: FC = () => {
         height: '100%',
       }}
     >
-      <ItemsBoard list={itemsOnBoard} />
+      <ItemsBoard list={movedItems.items} />
       <ItemsList list={unicItems} />
     </Space>
   );

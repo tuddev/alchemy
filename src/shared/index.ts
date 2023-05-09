@@ -1,1 +1,1 @@
-export type { TItem, TMovedItem } from './types';
+export type { TItem } from './types';
