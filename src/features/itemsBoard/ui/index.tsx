@@ -13,7 +13,12 @@ export const ItemsBoard: FC<TItemsBoardProps> = ({ list }) => {
   return (
     <div className={styles.list} ref={ref}>
       {list.map((item, index) => (
-        <ItemDnD containerRef={ref} item={item} key={item.id} index={index} />
+        <ItemDnD
+          containerRef={ref}
+          item={item}
+          key={`${item.id}/${index}`}
+          index={index}
+        />
       ))}
     </div>
   );

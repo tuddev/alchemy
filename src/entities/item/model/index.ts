@@ -5,9 +5,7 @@ import { getItemsNamesWithSlash } from './common';
 
 export const unicItems$ = atom<TItem[]>(INIT_ITEM_OBJECTS);
 
-export const itemsOnBoard$ = atom<TItem[]>(
-  INIT_ITEM_OBJECTS.map((item) => ({ ...item, isSelected: false }))
-);
+export const itemsOnBoard$ = atom<TItem[]>(INIT_ITEM_OBJECTS);
 
 itemsOnBoard$.listen((items) => {
   if (!items.length) return;

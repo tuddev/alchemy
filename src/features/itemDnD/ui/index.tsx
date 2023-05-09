@@ -50,6 +50,8 @@ export const ItemDnD: FC<TItemDnDProps> = ({ item, containerRef }) => {
 
   const handleMouseDown = () => {
     if (!itemRef.current) return;
+    itemRef.current.style.zIndex = '1001';
+
     document.onmousemove = (event) => {
       if (!itemRef.current || !containerRef.current) return;
 
@@ -69,6 +71,7 @@ export const ItemDnD: FC<TItemDnDProps> = ({ item, containerRef }) => {
     event: MouseEvent
   ) => {
     if (!itemRef.current) return;
+    itemRef.current.style.zIndex = '1000';
     const { x, y } = getXYCoorsOfMovedItem(event, containerRef.current);
 
     const lastItem = {

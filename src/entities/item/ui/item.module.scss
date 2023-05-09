@@ -1,7 +1,15 @@
 .container {
   display: flex;
   flex-direction: column;
-  pointer-events: none;
+  align-items: center;
   user-select: none;
   gap: 6px;
+
+  * {
+    pointer-events: none;
+  }
+
+  :hover {
+    cursor: pointer;
+  }
 }
