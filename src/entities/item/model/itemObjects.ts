@@ -37,6 +37,48 @@ const EnergyObject = createItemObject(
   'https://avatanplus.com/files/resources/original/5773ecf71f4fd1559cd5a558.png'
 );
 
+const MetallObject = createItemObject(
+  'Metall',
+  'https://imgpng.ru/d/silver_PNG17160.png'
+);
+
+const StoneObject = createItemObject(
+  'Stone',
+  'https://i.pinimg.com/originals/6e/44/73/6e44737d41239728e19e7dacd88dfe4a.png'
+);
+
+const SandObject = createItemObject(
+  'Sand',
+  'https://imgpng.ru/d/sand_PNG1.png'
+);
+const GlassObject = createItemObject(
+  'Glass',
+  'https://pngicon.ru/file/uploads/bokal.png'
+);
+const FirewoodObject = createItemObject(
+  'Firewood',
+  'https://www.pngmart.com/files/11/Firewood-Sacked-Transparent-PNG.png'
+);
+const ClayObject = createItemObject(
+  'Clay',
+  'https://www.pngplay.com/wp-content/uploads/13/Greek-Pottery-Art-No-Background.png'
+);
+const BrickObject = createItemObject(
+  'Brick',
+  'https://imgpng.ru/d/brick_PNG3331.png'
+);
+const AshObject = createItemObject(
+  'Ash',
+  'https://wiki.teamfortress.com/w/images/thumb/b/b8/Pile_of_Ash.png/250px-Pile_of_Ash.png'
+);
+const StormObject = createItemObject(
+  'Storm',
+  'https://www.pngall.com/wp-content/uploads/6/Storm.png'
+);
+const CoalObject = createItemObject(
+  'Coal',
+  'https://imgpng.ru/d/coal_PNG16.png'
+);
 const LifeObject = createItemObject(
   'Life',
   'https://www.pngall.com/wp-content/uploads/1/Life-PNG-Image.png'
@@ -124,8 +166,8 @@ export const INIT_ITEM_OBJECTS: TItem[] = [
 
 const createMatchObject = (
   partsItems: TItem[],
-  createdItem: TItem
-): Record<string, TItem> => {
+  createdItem: TItem[]
+): Record<string, TItem[]> => {
   const names = getItemsNamesWithSlash(partsItems);
 
   return {
@@ -133,13 +175,28 @@ const createMatchObject = (
   };
 };
 
-export const MATCHES: Record<string, TItem> = {
-  ...createMatchObject([WaterObject, AirObject], SteamObject),
-  ...createMatchObject([AirObject, FireObject], EnergyObject),
-  ...createMatchObject([AirObject, EarthObject], DustObject),
-  ...createMatchObject([EarthObject, FireObject], LavaObject),
-  ...createMatchObject([WaterObject, EarthObject], SwampObject),
-  ...createMatchObject([WaterObject, FireObject], AlcoholObject),
+export const MATCHES: Record<string, TItem[]> = {
+  ...createMatchObject([WaterObject, AirObject], [SteamObject]),
+  ...createMatchObject([AirObject, FireObject], [EnergyObject]),
+  ...createMatchObject([AirObject, EarthObject], [DustObject]),
+  ...createMatchObject([EarthObject, FireObject], [LavaObject]),
+  ...createMatchObject([WaterObject, EarthObject], [SwampObject]),
+  ...createMatchObject([WaterObject, FireObject], [AlcoholObject]),
+  ...createMatchObject([WaterObject, LavaObject], [SteamObject, StoneObject]),
+  ...createMatchObject([WaterObject, StoneObject], [SandObject]),
+  ...createMatchObject([StoneObject, FireObject], [MetallObject]),
+  ...createMatchObject([FirewoodObject, FireObject], [CoalObject]),
+  ...createMatchObject([FireObject, DustObject], [AshObject]),
+
+  ...createMatchObject([AirObject, LavaObject], [StoneObject]),
+  ...createMatchObject([SwampObject, SandObject], [ClayObject]),
+  ...createMatchObject([ClayObject, FireObject], [BrickObject]),
+  ...createMatchObject([AirObject, EnergyObject], [StormObject]),
+  ...createMatchObject([FireObject, SandObject], [GlassObject]),
+  ...createMatchObject(
+    [StoneObject, StoneObject],
+    [StoneObject, StoneObject, FireObject]
+  ),
 };
 
 // вода + воздух = пар
@@ -151,16 +208,19 @@ export const MATCHES: Record<string, TItem> = {
 
 // вода + лава = пар, камень
 // воздух + камень = песок
-// вода + камень = песок
+
 // камень + огонь = металл
 // дерево + огонь = уголь
 // огонь + пыль = пепел
+
 // воздух + лава = камень
 // болото + песок = глина
+
 // глина + огонь = кирпич
 // воздух + энергия = буря
 // огонь + песок = стекло
 // камень + камень = камень, камень, огонь
+
 // огонь + спирт = энергия
 // металл + энергия = электричество
 // камень + ракушки = известняк

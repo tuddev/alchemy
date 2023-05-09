@@ -11,7 +11,7 @@ import { type TItem } from 'src/shared';
 import { Item } from 'src/entities/index';
 
 import styles from './item-dnd.module.scss';
-import { getRandomInt, moveAt, getXYCoorsOfMovedItem } from '../model';
+import { moveAt, getXYCoorsOfMovedItem } from '../model';
 
 interface TItemDnDProps {
   item: TItem;
@@ -23,11 +23,11 @@ export const ItemDnD: FC<TItemDnDProps> = ({ item, containerRef }) => {
   const itemRef = useRef<HTMLDivElement | null>(null);
   const movedItems = useStore(movedItems$);
 
-  useEffect(() => {
-    if (!itemRef.current) return;
-    itemRef.current.style.left = getRandomInt(0, 600) + 'px';
-    itemRef.current.style.top = getRandomInt(0, 500) + 'px';
-  }, []);
+  // useEffect(() => {
+  //   if (!itemRef.current) return;
+  //   itemRef.current.style.left = getRandomInt(0, 600) + 'px';
+  //   itemRef.current.style.top = getRandomInt(0, 500) + 'px';
+  // }, []);
 
   useEffect(() => {
     if (!itemRef.current) return;

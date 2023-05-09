@@ -4,4 +4,5 @@ export {
   unicItems$,
   itemsOnBoard$,
   tryCreateNewItem,
+  isCollide,
 } from './model';

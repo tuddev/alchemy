@@ -18,16 +18,16 @@ export const tryCreateNewItem = (currentItems: TItem[]) => {
   const newItem = tryCreateObjectFromCurrentItems(currentItems);
 
   if (newItem) {
-    const itemsSet = new Set([...unicItems$.get(), newItem]);
+    const itemsSet = new Set([...unicItems$.get(), ...newItem]);
     unicItems$.set([...itemsSet]);
 
-    let restItems: TItem[] = [];
+    let restItems: TItem[] = itemsOnBoard$.get();
 
     for (const curItem of currentItems) {
-      restItems = itemsOnBoard$.get().filter((item) => item.id !== curItem.id);
+      restItems = restItems.filter((item) => item.id !== curItem.id);
     }
 
-    itemsOnBoard$.set([...restItems, newItem]);
+    itemsOnBoard$.set([...restItems, ...newItem]);
   }
 };
 

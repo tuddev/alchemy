@@ -1,6 +1,5 @@
 import { atom } from 'nanostores';
-import { tryCreateNewItem, unicItems$ } from 'src/entities/item';
-import { isCollide } from 'src/entities/item/model';
+import { tryCreateNewItem, isCollide, unicItems$ } from 'src/entities/item';
 import { type TItem, type TMovedItem } from 'src/shared';
 
 export const movedItems$ = atom<{
@@ -18,7 +17,7 @@ movedItems$.listen(() => {
   const collided: TItem[] = [];
 
   for (const item of items) {
-    if (isCollide(last, item) && item.id !== last.id) {
+    if (isCollide(last, item)) {
       const movedItem = unicItems$
         .get()
         .find((unicItem) => unicItem.id === item.id);
