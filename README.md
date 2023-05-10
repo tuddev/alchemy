@@ -23,7 +23,7 @@ A simple but addictive game. Start with four basic items and use them to find di
 
 ### Download
 
-`git clone https://github.com/tuddev/pixel-paint.git`
+`git clone https://github.com/tuddev/alchemy.git`
 
 ### Installing dependencies
 
