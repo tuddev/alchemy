@@ -5,4 +5,22 @@
   gap: 20px;
   width: 100%;
   max-width: 100vw;
+  padding: 10px;
+  padding-top: 0;
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid {
+  width: 70px !important;
+  height: 110px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px !important;
 }

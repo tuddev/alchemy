@@ -12,8 +12,8 @@ interface TItemProps {
 export const Item: FC<TItemProps> = ({ item, onClick, className }) => {
   return (
     <div onClick={onClick} className={cn(styles.container, className)}>
-      <Image src={item.imgSrc} preview={false} />
-      {item.name}
+      <Image src={item.imgSrc} preview={false} height={64} width={64} />
+      <p style={{ color: '#780650', margin: 0 }}>{item.name}</p>
     </div>
   );
 };

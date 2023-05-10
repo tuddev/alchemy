@@ -4,6 +4,7 @@ import {
   type MutableRefObject,
   useRef,
   type MouseEventHandler,
+  useEffect,
 } from 'react';
 import { type TItem } from 'src/shared';
 import { Item } from 'src/entities/index';
@@ -21,6 +22,27 @@ interface TItemDnDProps {
 export const ItemDnD: FC<TItemDnDProps> = ({ item, containerRef }) => {
   const itemRef = useRef<HTMLDivElement | null>(null);
   const movedItems = useStore(movedItems$);
+
+  useEffect(() => {
+    if (!itemRef.current) return;
+    const currentItem = movedItems.items.find(
+      (movedItem) => movedItem.id === item.id
+    );
+
+    if (currentItem) {
+      currentItem.height = itemRef.current.offsetHeight;
+      currentItem.width = itemRef.current.offsetWidth;
+
+      const restItems = movedItems.items.filter(
+        (restItem) => restItem.id !== currentItem.id
+      );
+
+      movedItems$.set({
+        items: [...restItems, currentItem],
+        last: currentItem,
+      });
+    }
+  }, []);
 
   const handleMouseDown = () => {
     if (!itemRef.current) return;
@@ -50,6 +72,8 @@ export const ItemDnD: FC<TItemDnDProps> = ({ item, containerRef }) => {
 
     const lastItem = {
       ...item,
+      width: itemRef.current.offsetWidth,
+      height: itemRef.current.offsetHeight,
       left: x,
       top: y,
     };

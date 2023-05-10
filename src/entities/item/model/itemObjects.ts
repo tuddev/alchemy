@@ -5,10 +5,12 @@ import { type TItem } from 'src/shared';
 export const createItemObject = (name: string, imgSrc: string): TItem => {
   return {
     id: uuid(),
+    width: 64,
+    height: 64,
     name,
     imgSrc,
-    left: getRandomInt(0, 500),
-    top: getRandomInt(0, 500),
+    left: getRandomInt(0, 300),
+    top: getRandomInt(0, 300),
   };
 };
 

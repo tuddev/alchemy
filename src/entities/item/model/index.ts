@@ -32,7 +32,6 @@ movedItems$.listen(() => {
   }
 
   const lastItem = unicItems$.get().find((unicItem) => unicItem.id === last.id);
-  console.log(collided);
   if (lastItem) {
     collided.push(lastItem);
   }
@@ -64,10 +63,18 @@ export const tryCreateObjectFromCurrentItems = (currentItems: TItem[]) => {
 };
 
 export const isCollide = (aRect: TItem, bRect: TItem) => {
+  console.log(
+    'isCollied',
+    aRect.left < bRect.left + 64 &&
+      aRect.left + 64 > bRect.left &&
+      aRect.top < bRect.top + 88 &&
+      88 + aRect.top > bRect.top
+  );
+  console.log('elements', aRect, bRect);
   return (
     aRect.left < bRect.left + 64 &&
     aRect.left + 64 > bRect.left &&
-    aRect.top < bRect.top + 64 &&
-    64 + aRect.top > bRect.top
+    aRect.top < bRect.top + 88 &&
+    88 + aRect.top > bRect.top
   );
 };
